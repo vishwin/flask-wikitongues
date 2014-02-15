@@ -7,16 +7,40 @@ from flask import (
 	request,
 	session
 	)
-from mongokit import Connection, Document
+from pymongo import MongoClient
+import httplib2, os, sys
+from apiclient.discovery import build
+from apiclient.errors import HttpError
 
-# MongoDB configuration
-MONGODB_HOST='localhost'
-MONGODB_PORT=27017
+# Import constants
+from constants import MONGODB_HOST, MONGODB_PORT, YT_API_KEY, YT_CHANNEL_NAME
 
 # Create instance of app
 app=Flask(__name__)
 app.debug=True
 app.config.from_object(__name__)
 
-# Connect to database
-connection=Connection(app.config['MONGODB_HOST'], app.config['MONGODB_PORT'])
+# Connect to database, select collection
+connection=MongoClient()
+db=connection['wikitongues']
+
+# Connect to and configure YouTube
+youtube=build('youtube', 'v3', developerKey=YT_API_KEY)
+channel_id=youtube.channels().list(
+	part=u"id",
+	forUsername=YT_CHANNEL_NAME
+).execute()['items'][0]['id']
+get_playlists=youtube.playlists().list(
+	part=u"id, snippet",
+	channelId=channel_id,
+	maxResults=50
+).execute()
+
+# Test view
+@app.route("/")
+def sup():
+	return db.playlists.find_one()['_id']
+
+# Run this jawn
+if __name__=="__main__":
+	app.run()

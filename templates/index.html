@@ -13,9 +13,9 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="/css/normalize.css">
-        <link rel="stylesheet" href="/css/main.css">
-        <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+        <link rel="stylesheet" href="/static/css/normalize.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <script src="/statc/js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -23,7 +23,7 @@
         <![endif]-->
         <div id="wrapper">
             <header>
-                <span>WIKITONGUES: <!-- {{ languageName var goes in place of "Dutch" }} -->Dutch</span>
+                <span>WIKITONGUES: <!--  languageName var goes in place of "Dutch"  -->Dutch</span>
                 <ul>
                     <li><a id="nav-button" href="#">Explore <span>≡</span></a></li>
                     <!--<li><a href="#">Search</a></li>
@@ -31,7 +31,7 @@
                 </ul>
             </header>
             <div class="metadata">
-                <h1 class="title"><!-- {{ videoName variable goes here }} -->EVA SPEAKING DUTCH</h1>
+                <h1 class="title"><!--  videoName variable goes here  -->EVA SPEAKING DUTCH</h1>
                 <button id="play-init"></button>
             </div>
             <footer>
@@ -43,7 +43,14 @@
             </footer>
         </div>
         <div id="explore">
-            <ul>
+            <ul>{% for playlist in get_playlists['items'] %}
+                <li>
+                    <a href="#"></a>
+                        <img src="{{ playlist['snippet']['thumbnails']['medium']['url'] }}">
+                        <p>{{ playlist['snippet']['title'] }}</p>
+                    </a>  
+                </li>
+            {% endfor %}
                 <!-- loop returns ID, medium thumbnail URL, and video name for all languages -->
                 <li>
                     <!-- li return random video ID --> 
@@ -52,313 +59,15 @@
                         <p>Cat speakz language pls</p><!-- video title goes here -->
                     </a>  
                 </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <!-- li return random video ID --> 
-                    <a href="#"></a><!-- clicking this link grabs vid ID and resets global variable on page -->
-                        <img src="http://placekitten.com/320/180"><!-- thumbnail URL goes here -->
-                        <p>Cat speakz language pls</p><!-- video title goes here -->
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <!-- li return random video ID --> 
-                    <a href="#"></a><!-- clicking this link grabs vid ID and resets global variable on page -->
-                        <img src="http://placekitten.com/320/180"><!-- thumbnail URL goes here -->
-                        <p>Cat speakz language pls</p><!-- video title goes here -->
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <!-- li return random video ID --> 
-                    <a href="#"></a><!-- clicking this link grabs vid ID and resets global variable on page -->
-                        <img src="http://placekitten.com/320/180"><!-- thumbnail URL goes here -->
-                        <p>Cat speakz language pls</p><!-- video title goes here -->
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <!-- li return random video ID --> 
-                    <a href="#"></a><!-- clicking this link grabs vid ID and resets global variable on page -->
-                        <img src="http://placekitten.com/320/180"><!-- thumbnail URL goes here -->
-                        <p>Cat speakz language pls</p><!-- video title goes here -->
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
-                <li>
-                    <a href="#"></a>
-                        <img src="http://placekitten.com/320/180">
-                        <p>Cat speakz language pls</p>
-                    </a>  
-                </li>
             </ul>
         </div>
 
         <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="/js/plugins.js"></script>
-        <script src="/js/main.js"></script>
-        <script src="/js/jquery.tubular.1.0.js"></script>
+        <script src="/static/js/plugins.js"></script>
+        <script src="/static/js/main.js"></script>
+        <script src="/static/js/jquery.tubular.1.0.js"></script>
         <script>
             $().ready(function() {
                 $('#wrapper').tubular({

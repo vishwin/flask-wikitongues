@@ -38,8 +38,8 @@ get_playlists=youtube.playlists().list(
 
 # Test view
 @app.route("/")
-def sup():
-	return db.playlists.find_one()['_id']
+def mainpage(name=None):
+	return render_template('index.html', name=name, get_playlists=get_playlists)
 
 # Run this jawn
 if __name__=="__main__":

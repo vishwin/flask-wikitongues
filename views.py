@@ -66,18 +66,27 @@ def get_thumb(item_id, size):
 		id=item_id
 	).execute()['items'][0]['snippet']['thumbnails'][size]['url']
 
-# Test view
+# Seed random number generator
+random.seed()
+
+# Pick eleven videos, with the last for the main viewport
+picked_videos=[]
+for i in range(11):
+	picked_videos.append(video_master[random.randint(0, len(video_master)-1)])
+
+# Main page
 @app.route("/")
 def mainpage():
-	# Seed random number generator
-	random.seed()	
-	
-	# Pick eleven videos, with the last for the main viewport
-	picked_videos=[]
-	for i in range(11):
-		picked_videos.append(video_master[random.randint(0, len(video_master)-1)])
-	
 	return render_template('index.html', db=db, len=len, picked_videos=picked_videos, thumb=get_thumb)
+
+# Specify specific video
+@app.route('/<request_video_id>')
+def mainpage_video(request_video_id):
+	request_video_title=youtube.videos().list(
+		part=u"snippet",
+		id=request_video_id
+	).execute()['items'][0]['snippet']['title'].replace('WIKITONGUES: ', '')
+	return render_template('index.html', current_video_id=request_video_id, current_video_title=request_video_title, db=db, len=len, picked_videos=picked_videos, thumb=get_thumb)
 
 # Run this jawn
 if __name__=="__main__":

@@ -30,7 +30,11 @@
                 </ul>
             </header>
             <div class="metadata">
-                <h1 class="title">{{ picked_videos[10]['title'].replace('WIKITONGUES: ', '') }}</h1>
+                <h1 class="title">{% if current_video_id %}
+                {{ current_video_title }}
+                {% else %}
+                {{ picked_videos[10]['title'].replace('WIKITONGUES: ', '') }}
+                {% endif %}</h1>
                 <button id="play-init"></button>
             </div>
             <footer>
@@ -44,20 +48,13 @@
         <div id="explore">
             <ul>{% for i in range(len(picked_videos)-1) %}
                 <li>
-                    <a href="#"></a>
+                    <a href="/{{ picked_videos[i]['videoID'] }}">
                         <img src="{{ thumb(picked_videos[i]['videoID'], 'medium') }}">
                         <p>{{ picked_videos[i]['title'].replace('WIKITONGUES: ', '') }}</p>
                     </a>  
                 </li>
             {% endfor %}
                 <!-- loop returns ID, medium thumbnail URL, and video name for all languages -->
-                <li>
-                    <!-- li return random video ID --> 
-                    <a href="#"></a><!-- clicking this link grabs vid ID and resets global variable on page -->
-                        <img src="http://placekitten.com/320/180"><!-- thumbnail URL goes here -->
-                        <p>Cat speakz language pls</p><!-- video title goes here -->
-                    </a>  
-                </li>
             </ul>
         </div>
 
@@ -101,7 +98,11 @@
         <script>
             $().ready(function() {
                 $('#wrapper').tubular({
-                    videoId: '{{ picked_videos[10]["videoID"] }}', // <-- VIDEO ID variable goes here
+                {% if current_video_id %}
+                    videoId: '{{ current_video_id }}',
+                {% else %}
+                    videoId: '{{ picked_videos[10]["videoID"] }}',
+                {% endif %}
                     mute:false,
                     playButtonClass: 'tubular-play',
                     pauseButtonClass: 'tubular-pause'

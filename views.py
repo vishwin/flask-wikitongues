@@ -77,7 +77,7 @@ def mainpage():
 	for i in range(11):
 		picked_videos.append(video_master[random.randint(0, len(video_master))])
 	
-	return render_template('index.html', len=len, picked_videos=picked_videos, thumb=get_thumb)
+	return render_template('index.html', db=db, len=len, picked_videos=picked_videos, thumb=get_thumb)
 
 # Run this jawn
 if __name__=="__main__":

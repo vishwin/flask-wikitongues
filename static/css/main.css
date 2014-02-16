@@ -216,7 +216,7 @@ footer ul li {
     padding:0 0 20px 0;
 }
 
-#explore div {
+#explore > div {
     margin-bottom:20px;
     width:320px;
     height:58px;

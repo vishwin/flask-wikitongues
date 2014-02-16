@@ -227,6 +227,46 @@ footer ul li {
     box-shadow:0px 0px 20px #0A171F;
 }
 
+#form-wrapper {
+    position:absolute;
+    z-index:9999 !important;
+    width:100%;
+    height:100%;
+    padding-top:50px;
+    background:rgba(10,23,31,.9);
+}
+
+#form-wrapper form {
+    margin:0 auto;
+    width:600px;
+}
+
+#form-wrapper * {
+    display:block;
+    width:100%;
+}
+
+#form-wrapper *:focus {
+    outline:none;
+}
+
+#form-wrapper input, #form-wrapper textarea,
+#form-wrapper select {
+    margin-bottom:20px;
+    padding:10px;
+    border:1px solid rgb(10,23,31);
+}
+
+#form-wrapper input[type="submit"] {
+    width:103.72%;
+}
+
+#form-wrapper textarea {
+    resize:none;
+    height:150px;
+    overflow:scroll;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

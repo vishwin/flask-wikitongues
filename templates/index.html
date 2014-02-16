@@ -66,6 +66,7 @@
             <form action="#">
                 <input type="text" placeholder="What's your name?">
                 <div class="select">
+                    <span></span>                    
                     <select>
                         <option selected="selected" value="Where are you from?">Where are you from?</option>
                         {% for country in db.countries.find() %}
@@ -73,6 +74,7 @@
                     {% endfor %}</select>
                 </div>
                 <div class="select">
+                    <span></span>
                     <select name="" id="">
                         <option selected="selected" value="What's your language?">What's your language?</option>
                         {% for language in db.languages.find() %}

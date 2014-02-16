@@ -46,16 +46,29 @@
             </footer>
         </div>
         <div id="explore">
-            <ul>{% for i in range(len(picked_videos)-1) %}
-                <li>
-                    <a href="/{{ picked_videos[i]['videoID'] }}">
-                        <img src="{{ thumb(picked_videos[i]['videoID'], 'medium') }}">
-                        <p>{{ picked_videos[i]['title'].replace('WIKITONGUES: ', '') }}</p>
-                    </a>  
-                </li>
-            {% endfor %}
-                <!-- loop returns ID, medium thumbnail URL, and video name for all languages -->
-            </ul>
+            <div>
+                <ul id="filter">
+                    <li><button data-section="#people">People</button></li>
+                    <li><button data-section="#region">Region</button></li>
+                    <li><button data-section="#language">Language</button></li>
+                </ul>    
+            </div>
+            <div>
+                <div id="people"></div>
+                    <ul>{% for i in range(len(picked_videos)-1) %}
+                        <li>
+                            <a href="/{{ picked_videos[i]['videoID'] }}">
+                                <img src="{{ thumb(picked_videos[i]['videoID'], 'medium') }}">
+                                <p>{{ picked_videos[i]['title'].replace('WIKITONGUES: ', '') }}</p>
+                            </a>  
+                        </li>
+                    {% endfor %}
+                        <!-- loop returns ID, medium thumbnail URL, and video name for all languages -->
+                    </ul>
+                </div>
+                <div id="region"></div>
+                <div id="language"></div>
+            </div>
         </div>
 
         <div id="form-wrapper">
@@ -143,6 +156,42 @@
                     $(this).siblings('span').text(fileValue)
                 });
 
+                var link_click_handler = function(event) {
+                    event.preventDefault();
+
+                    var the_link = $(this);
+
+                    activate_section(the_link);
+                };
+
+                var activate_section = function(the_link) {
+                    the_link.attr('style','background:#A8A9AA;');
+
+                    var other_links = the_link.parent().siblings().find('button').removeAttr('style'); 
+
+                    var href = the_link.attr('data-section'); 
+
+                    console.log(href)
+
+                    var corresponding_section = $(href);
+                    corresponding_section.show();
+
+                    var other_sections = corresponding_section.siblings();
+                    other_sections.hide();
+                };
+
+
+                $(function() {
+
+                    var link_selector = $('ul#filter li button');
+                    var links = $(link_selector);
+
+                    links.on('click', link_click_handler);
+
+                    var first_link = links.eq(0);
+
+                    activate_section(first_link);
+                });
              });
         </script>
 

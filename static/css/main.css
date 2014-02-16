@@ -212,6 +212,39 @@ footer ul li {
     padding:0 0 20px 0;
 }
 
+#explore div {
+    margin-bottom:20px;
+    width:320px;
+    height:58px;
+}
+
+ul#filter li {
+    display:inline;
+    margin-right:-4px;
+    padding:0;
+}
+
+ul#filter li button {
+    width:33.38%;
+    margin:0;
+    padding:20px 0;
+    background:#D6D8DB;
+    border:none;
+    -webkit-transition:background .2s ease-in-out;
+    -moz-transition:background .2s ease-in-out;
+    -o-transition:background .2s ease-in-out;
+    -ms-transition:background .2s ease-in-out;
+    transition:background .2s ease-in-out;
+}
+
+ul#filter li button:hover, .active {
+    background:#A8A9AA;
+}
+
+ul#filter li button:focus {
+    outline:none;
+}
+
 #explore ul li {
     margin-bottom:20px;
 }

@@ -54,7 +54,7 @@
                 </ul>    
             </div>
             <div>
-                <div id="people"></div>
+                <div id="people">
                     <ul>{% for i in range(len(picked_videos)-1) %}
                         <li>
                             <a href="/{{ picked_videos[i]['videoID'] }}">
@@ -66,8 +66,60 @@
                         <!-- loop returns ID, medium thumbnail URL, and video name for all languages -->
                     </ul>
                 </div>
-                <div id="region"></div>
-                <div id="language"></div>
+                <div id="region">
+                    <ul class="cat-list">
+                        <li>
+                            <div>region! +/-</div>
+                            <ul class="sub-nav">
+                                <li>
+                                    <a href="#">
+                                        <img src="http://placekitten.com/320/180">
+                                        <p>Can has region?</p>
+                                    </a>  
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="http://placekitten.com/320/180">
+                                        <p>Can has region?</p>
+                                    </a>  
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="http://placekitten.com/320/180">
+                                        <p>Can has region?</p>
+                                    </a>  
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>  
+                </div>
+                <div id="language">
+                    <ul class="cat-list">
+                        <li>
+                            <div>language! +/-</div>
+                            <ul class="sub-nav">
+                                <li>
+                                    <a href="#">
+                                        <img src="http://placekitten.com/320/180">
+                                        <p>Can has language?</p>
+                                    </a>  
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="http://placekitten.com/320/180">
+                                        <p>Can has language?</p>
+                                    </a>  
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="http://placekitten.com/320/180">
+                                        <p>Can has language?</p>
+                                    </a>  
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>  
+                </div>
             </div>
         </div>
 
@@ -120,79 +172,6 @@
                     playButtonClass: 'tubular-play',
                     pauseButtonClass: 'tubular-pause'
                 });
-
-                $('#nav-button').on('click', function(){
-                    $('#wrapper, #tubular-container, #tubular-shield, .metadata').toggleClass('left-animate')
-                })
-
-                $('#submit-form').on('click', function(){
-                    $('#form-wrapper').show()
-                })
-
-                $('#close-button').on('click', function(e){
-                        $('#form-wrapper').hide();
-                });
-
-                $('body').on('keydown', function(e){
-                    if ((e.keyCode || e.which) == 27)
-                    {
-                        $('#form-wrapper').hide();
-                    }  
-                });
-
-                $('.select select').each(function(){
-                  $(this).change(function() {
-                    var str = "";
-                    $(this).find("option:selected").each(function(){
-                      str += $(this).text() + " ";
-                    });
-                    $(this).siblings('span').text(str);
-                  }).change(); 
-
-                });
-
-                $('.upload input').change(function(){
-                    var fileValue = $('.upload input').attr('value')
-                    $(this).siblings('span').text(fileValue)
-                });
-
-                var link_click_handler = function(event) {
-                    event.preventDefault();
-
-                    var the_link = $(this);
-
-                    activate_section(the_link);
-                };
-
-                var activate_section = function(the_link) {
-                    the_link.attr('style','background:#A8A9AA;');
-
-                    var other_links = the_link.parent().siblings().find('button').removeAttr('style'); 
-
-                    var href = the_link.attr('data-section'); 
-
-                    console.log(href)
-
-                    var corresponding_section = $(href);
-                    corresponding_section.show();
-
-                    var other_sections = corresponding_section.siblings();
-                    other_sections.hide();
-                };
-
-
-                $(function() {
-
-                    var link_selector = $('ul#filter li button');
-                    var links = $(link_selector);
-
-                    links.on('click', link_click_handler);
-
-                    var first_link = links.eq(0);
-
-                    activate_section(first_link);
-                });
-             });
         </script>
 
 

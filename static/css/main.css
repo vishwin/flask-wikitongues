@@ -112,6 +112,10 @@ body a {
     text-decoration:none;
 }
 
+body button:hover, body a:hover {
+    cursor:pointer;
+}
+
 body ul {
     list-style-type:none;
     text-transform:uppercase;
@@ -244,6 +248,24 @@ ul#filter li button:hover, .active {
 ul#filter li button:focus {
     outline:none;
 }
+
+.cat-list li:hover {
+    cursor:pointer;
+}
+
+.cat-list li div {
+    width:300px;
+    background:#FFF;
+    padding:5px 10px;
+    margin-bottom:20px;
+    text-shadow:none;
+    color:#333;
+}
+
+.sub-nav {
+    display:none;
+}
+
 
 #explore ul li {
     margin-bottom:20px;

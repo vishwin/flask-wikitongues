@@ -81,31 +81,19 @@
                     {% endfor %}</ul>  
                 </div>
                 <div id="language">
-                    <ul class="cat-list">
+                    <ul class="cat-list">{% for language in db.playlists.find({'parent': 'Languages'}) %}
                         <li>
-                            <div>language! +/-</div>
-                            <ul class="sub-nav">
+                            <div>{{ language['_id'] }}&nbsp;+/-</div>
+                            <ul class="sub-nav">{% for video in get_videos(language['playlistID']).execute()['items'] %}
                                 <li>
-                                    <a href="#">
-                                        <img src="http://placekitten.com/320/180">
-                                        <p>Can has language?</p>
+                                    <a href="/{{ video['contentDetails']['videoId'] }}">
+                                        <img src="{{ thumb(video['contentDetails']['videoId'], 'medium') }}">
+                                        <p>{{ video['snippet']['title'].replace('WIKITONGUES: ', '') }}</p>
                                     </a>  
                                 </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="http://placekitten.com/320/180">
-                                        <p>Can has language?</p>
-                                    </a>  
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="http://placekitten.com/320/180">
-                                        <p>Can has language?</p>
-                                    </a>  
-                                </li>
-                            </ul>
+                            {% endfor %}</ul>
                         </li>
-                    </ul>  
+                    {% endfor %}</ul>  
                 </div>
             </div>
         </div>

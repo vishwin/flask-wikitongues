@@ -23,11 +23,10 @@
         <![endif]-->
         <div id="wrapper">
             <header>
-                <span>WIKITONGUES: <!--  languageName var goes in place of "Dutch"  -->Dutch</span>
+                <span>WIKITONGUES</span>
                 <ul>
+                    <li><a id="submit-form">Submit</a></li>
                     <li><a id="nav-button" href="#">Explore <span>≡</span></a></li>
-                    <!--<li><a href="#">Search</a></li>
-                    <li><a href="#">About</a></li>-->
                 </ul>
             </header>
             <div class="metadata">
@@ -411,12 +410,13 @@
 
                 $('#submit-form').on('click', function(){
                     $('#form-wrapper').show()
+                    $('#wrapper, #tubular-shield').css('position','fixed')
                 })
 
-                $('#form-wrapper').on('click', function(e){
-                    if (e.target.tagName != 'INPUT' && e.target.tagName != 'TEXTAREA' && e.target.class != 'SELECT' && e.target.class != 'UPLOAD' && e.target.tagName != 'SELECT' && e.target.tagName != 'OPTION' && e.target.tagName != 'H1') {
+                $('#close-button').on('click', function(e){
                         $('#form-wrapper').hide();
-                    }
+                        $('#wrapper').css('position','relative')
+                        $('#wrapper').css('position','absolute')
                 });
 
                 $('body').on('keydown', function(e){
@@ -425,6 +425,23 @@
                         $('#form-wrapper').hide();
                     }  
                 });
+
+                $('.select select').each(function(){
+                  $(this).change(function() {
+                    var str = "";
+                    $(this).find("option:selected").each(function(){
+                      str += $(this).text() + " ";
+                    });
+                    $(this).siblings('span').text(str);
+                  }).change(); 
+
+                });
+
+                $('.upload input').change(function(){
+                    var fileValue = $('.upload input').attr('value')
+                    $(this).text(fileValue)
+                });
+
              });
         </script>
 

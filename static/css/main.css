@@ -132,11 +132,20 @@ header span {
 header ul {
     position:absolute;
     top:0;
-    right:53px;
-    margin-top:5px;
+    right:54px;
+    margin-top:14px;
+}
+
+header ul li {
+    display:inline;
+}
+
+header ul li:last-child {
+    margin-left:15px;
 }
 
 header ul li span {
+    display:none;
     font-size:1.5em;
     margin:0;
 }
@@ -315,6 +324,21 @@ footer ul li {
     resize:none;
     height:150px;
     overflow:scroll;
+}
+
+#close-button {
+    position:absolute;
+    width:50px;
+    border:none; 
+    background:none;
+    font-size:2em;
+    color:#fff;
+    top:20px;
+    right:20px;
+}
+
+#close-button:focus {
+    outline:none;
 }
 
 /* ==========================================================================

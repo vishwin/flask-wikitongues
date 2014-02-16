@@ -87,6 +87,7 @@
                 <textarea placeholder="Translate it to another language?"></textarea>
                 <input type="submit">
             </form>
+            <button id="close-button">X</button>
         </div>
 
         <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
@@ -110,13 +111,10 @@
 
                 $('#submit-form').on('click', function(){
                     $('#form-wrapper').show()
-                    $('#wrapper, #tubular-shield').css('position','fixed')
                 })
 
                 $('#close-button').on('click', function(e){
                         $('#form-wrapper').hide();
-                        $('#wrapper').css('position','relative')
-                        $('#wrapper').css('position','absolute')
                 });
 
                 $('body').on('keydown', function(e){

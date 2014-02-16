@@ -66,19 +66,21 @@
             <form action="#">
                 <input type="text" placeholder="What's your name?">
                 <div class="select">
-                    Where are you from?
-                    <select>{% for country in db.countries.find() %}
+                    <select>
+                        <option selected="selected" value="Where are you from?">Where are you from?</option>
+                        {% for country in db.countries.find() %}
                         <option value="{{ country['name'] }}">{{ country['name'] }}</option>
                     {% endfor %}</select>
                 </div>
                 <div class="select">
-                    What's your language?
-                    <select name="" id="">{% for language in db.languages.find() %}
+                    <select name="" id="">
+                        <option selected="selected" value="What's your language?">What's your language?</option>
+                        {% for language in db.languages.find() %}
                         <option value="{{ language['name'] }}">{{ language['name'] }}</option>
                     {% endfor %}</select>
                 </div>
                 <div class="upload">
-                    Select a video
+                    <span>Select a video</span>
                     <input type="file">
                 </div>
                 <textarea placeholder="In your own language, what did you say?"></textarea>
@@ -137,7 +139,7 @@
 
                 $('.upload input').change(function(){
                     var fileValue = $('.upload input').attr('value')
-                    $(this).text(fileValue)
+                    $(this).siblings('span').text(fileValue)
                 });
 
              });

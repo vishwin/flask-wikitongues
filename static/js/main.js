@@ -76,6 +76,4 @@ $(function(){
 	    $(this).find('.sub-nav').toggle()
 	});
 
-	});
-
 })

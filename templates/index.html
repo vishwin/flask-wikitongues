@@ -63,35 +63,22 @@
                             </a>  
                         </li>
                     {% endfor %}
-                        <!-- loop returns ID, medium thumbnail URL, and video name for all languages -->
                     </ul>
                 </div>
                 <div id="region">
-                    <ul class="cat-list">
+                    <ul class="cat-list">{% for continent in db.playlists.find({'parent': 'Continents'}) %}
                         <li>
-                            <div>region! +/-</div>
-                            <ul class="sub-nav">
+                            <div>{{ continent['_id'] }}&nbsp;+/-</div>
+                            <ul class="sub-nav">{% for video in get_videos(continent['playlistID']).execute()['items'] %}
                                 <li>
-                                    <a href="#">
-                                        <img src="http://placekitten.com/320/180">
-                                        <p>Can has region?</p>
+                                    <a href="/{{ video['contentDetails']['videoId'] }}">
+                                        <img src="{{ thumb(video['contentDetails']['videoId'], 'medium') }}">
+                                        <p>{{ video['snippet']['title'].replace('WIKITONGUES: ', '') }}</p>
                                     </a>  
                                 </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="http://placekitten.com/320/180">
-                                        <p>Can has region?</p>
-                                    </a>  
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="http://placekitten.com/320/180">
-                                        <p>Can has region?</p>
-                                    </a>  
-                                </li>
-                            </ul>
+                            {% endfor %}</ul>
                         </li>
-                    </ul>  
+                    {% endfor %}</ul>  
                 </div>
                 <div id="language">
                     <ul class="cat-list">
@@ -172,6 +159,7 @@
                     playButtonClass: 'tubular-play',
                     pauseButtonClass: 'tubular-pause'
                 });
+            });
         </script>
 
 

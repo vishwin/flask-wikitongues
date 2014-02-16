@@ -26,11 +26,11 @@
                 <span>WIKITONGUES</span>
                 <ul>
                     <li><a id="submit-form">Submit</a></li>
-                    <li><a id="nav-button" href="#">Explore <span>≡</span></a></li>
+                    <li><a id="nav-button">Explore <span>≡</span></a></li>
                 </ul>
             </header>
             <div class="metadata">
-                <h1 class="title">{{ picked_videos[10]['title'] }}</h1>
+                <h1 class="title">{{ picked_videos[10]['title'].replace('WIKITONGUES: ', '') }}</h1>
                 <button id="play-init"></button>
             </div>
             <footer>
@@ -46,7 +46,7 @@
                 <li>
                     <a href="#"></a>
                         <img src="{{ thumb(picked_videos[i]['videoID'], 'medium') }}">
-                        <p>{{ picked_videos[i]['title'] }}</p>
+                        <p>{{ picked_videos[i]['title'].replace('WIKITONGUES: ', '') }}</p>
                     </a>  
                 </li>
             {% endfor %}

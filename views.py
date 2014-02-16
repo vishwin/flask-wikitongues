@@ -75,7 +75,7 @@ def mainpage():
 	# Pick eleven videos, with the last for the main viewport
 	picked_videos=[]
 	for i in range(11):
-		picked_videos.append(video_master[random.randint(0, len(video_master))])
+		picked_videos.append(video_master[random.randint(0, len(video_master)-1)])
 	
 	return render_template('index.html', db=db, len=len, picked_videos=picked_videos, thumb=get_thumb)
 

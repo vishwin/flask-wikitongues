@@ -327,7 +327,7 @@ footer ul li {
 }
 
 #close-button {
-    position:absolute;
+    position:fixed;
     width:50px;
     border:none; 
     background:none;

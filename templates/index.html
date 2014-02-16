@@ -31,7 +31,7 @@
                 </ul>
             </header>
             <div class="metadata">
-                <h1 class="title"><!--  videoName variable goes here  -->EVA SPEAKING DUTCH</h1>
+                <h1 class="title">{{ picked_videos[10]['title'] }}</h1>
                 <button id="play-init"></button>
             </div>
             <footer>
@@ -43,11 +43,11 @@
             </footer>
         </div>
         <div id="explore">
-            <ul>{% for playlist in get_playlists['items'] %}
+            <ul>{% for i in range(len(picked_videos)-1) %}
                 <li>
                     <a href="#"></a>
-                        <img src="{{ playlist['snippet']['thumbnails']['medium']['url'] }}">
-                        <p>{{ playlist['snippet']['title'] }}</p>
+                        <img src="{{ thumb(picked_videos[i]['videoID'], 'medium') }}">
+                        <p>{{ picked_videos[i]['title'] }}</p>
                     </a>  
                 </li>
             {% endfor %}
@@ -71,7 +71,7 @@
         <script>
             $().ready(function() {
                 $('#wrapper').tubular({
-                    videoId: 'Qv53zmmpM5Q', // <-- VIDEO ID variable goes here
+                    videoId: '{{ picked_videos[10]["videoID"] }}', // <-- VIDEO ID variable goes here
                     mute:false,
                     playButtonClass: 'tubular-play',
                     pauseButtonClass: 'tubular-pause'

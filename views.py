@@ -77,7 +77,7 @@ for i in range(11):
 # Main page
 @app.route("/")
 def mainpage():
-	return render_template('index.html', db=db, len=len, picked_videos=picked_videos, thumb=get_thumb)
+	return render_template('index.html', db=db, len=len, get_videos=get_videos, picked_videos=picked_videos, thumb=get_thumb)
 
 # Specify specific video
 @app.route('/<request_video_id>')
@@ -86,7 +86,7 @@ def mainpage_video(request_video_id):
 		part=u"snippet",
 		id=request_video_id
 	).execute()['items'][0]['snippet']['title'].replace('WIKITONGUES: ', '')
-	return render_template('index.html', current_video_id=request_video_id, current_video_title=request_video_title, db=db, len=len, picked_videos=picked_videos, thumb=get_thumb)
+	return render_template('index.html', current_video_id=request_video_id, current_video_title=request_video_title, db=db, len=len, get_videos=get_videos, picked_videos=picked_videos, thumb=get_thumb)
 
 # Run this jawn
 if __name__=="__main__":
